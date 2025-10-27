@@ -1,0 +1,11 @@
+A hash table is the ideal data structure for fast lookups because it provides
+average-case constant time performance, O(1), for insertion, search, and deletion.
+This efficiency comes from the use of a hash function that converts keys
+(like contact names) into array indices, allowing nearly direct access to stored data.
+In this implementation, each contact’s name is hashed using the sum of its
+character codes modulo the table size. This maps similar keys to specific
+positions in the array. Because different names can sometimes produce the same index,
+collisions are inevitable. To handle collisions, I implemented **separate chaining**,
+which stores multiple entries in a linked list at the same index. When a collision
+occurs, the new contact is simply appended to the linked list. If the same key is
+inserted again, the code updates the existing contact instead of creating a duplicate.
