@@ -1,0 +1,28 @@
+"""
+DESIGN MEMO
+
+A hash table is the right data structure for this contact
+management system because it allows fast lookups using a
+contact's name as a key. Instead of searching through every
+contact one at a time, the hash function calculates an index
+where the contact should be stored. This makes searching,
+inserting, and updating contacts O(1) on average.
+
+I handled collisions using separate chaining with linked
+lists. When two contact names produce the same index, the
+new contact is added to the linked list at that position.
+When searching, the program checks each Node in the linked
+list until it finds the matching name or reaches the end.
+I also included duplicate-key handling so that inserting a
+contact with an existing name updates its phone number
+instead of creating another entry.
+
+An engineer might choose a hash table over a list when fast
+lookups and frequent insertions are important. For example,
+a contact management application needs to retrieve phone
+numbers quickly, even when it stores hundreds or thousands
+of contacts. A list would require checking multiple entries
+to find a contact, resulting in O(n) search time. A tree
+might be preferable when sorted data or ordered traversal
+is needed, but a hash table is generally a better choice
+when the main goal is fast access using unique keys.
